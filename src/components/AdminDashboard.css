@@ -1,0 +1,9 @@
+/* Enable scrolling but hide the scrollbar */
+body {
+    overflow: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}

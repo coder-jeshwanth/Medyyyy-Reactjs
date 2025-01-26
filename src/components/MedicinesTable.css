@@ -1,0 +1,38 @@
+.medicines-table-container {
+    width: 1900px;
+    height: calc(100vh - 40px); /* Adjust for padding/margin if needed */
+    animation: fadeIn 0.5s ease-in-out;
+    margin-top:75px;/* Removed the high margin */
+    box-sizing: border-box; /* Ensure padding doesn't affect width/height */
+    display: flex;
+    justify-content: center; /* Center table horizontally */
+    align-items: flex-start; /* Align table to the top */
+}
+
+.medicines-table {
+    width: 100%; /* Stretch the table to fit the container */
+    max-width: 100%; /* Ensure it doesn't overflow */
+    height: auto; /* Allow the table to expand vertically as needed */
+    border-collapse: collapse;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.medicines-table th, .medicines-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Prevent overflow of long text */
+}
+
+.medicines-table th {
+    background-color: #f4f4f4;
+}
+
+.medicines-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
