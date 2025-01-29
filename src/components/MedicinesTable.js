@@ -6,6 +6,7 @@ import { GrUpdate } from 'react-icons/gr';
 import { IoMdRemoveCircle, IoMdCloseCircle } from 'react-icons/io';
 import { AiOutlineDelete } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
+import { FaSearchengin } from "react-icons/fa";
 
 import './MedicinesTable.css';
 
@@ -47,10 +48,13 @@ const MedicinesTable = ({ mode }) => {
         if (mode !== 'add') fetchMedicines();
     }, [mode]);
 
-    const filteredMedicines = medicines.filter((medicine) =>
-        medicine.medicineName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        medicine.boxNumber.toString().includes(searchQuery)
-    );
+    const filteredMedicines = medicines.filter((medicine) => {
+        const medicineNameWithoutNumbers = medicine.medicineName.replace(/[0-9]/g, '');
+        return (
+            medicineNameWithoutNumbers.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            medicine.boxNumber.toString().includes(searchQuery)
+        );
+    });
 
     const handleAddClick = () => {
         setNewRows([...newRows, {
@@ -59,7 +63,7 @@ const MedicinesTable = ({ mode }) => {
             boxNumber: '',
             tabletsPerSheet: '',
             mrp: '',
-            perCost: '',
+            perCost: '', // Include perCost only in Add mode
         }]);
     };
 
@@ -75,10 +79,8 @@ const MedicinesTable = ({ mode }) => {
                 mrp: parseFloat(newRow.mrp),
                 tabletsPerSheet: parseInt(newRow.tabletsPerSheet, 10),
                 boxNumber: parseInt(newRow.boxNumber, 10),
-                perCost: parseFloat(newRow.perCost)
+                perCost: mode === 'add' ? parseFloat(newRow.perCost) : undefined, // Add perCost only in Add mode
             }));
-
-            console.log('Data to be added:', dataToSend); // Log the data to be added
 
             await axios.post(`${API_URL}/add`, dataToSend, {
                 headers: {
@@ -123,7 +125,7 @@ const MedicinesTable = ({ mode }) => {
                 medicine.id === editedData.id ? editedData : medicine
             ));
             setEditableRow(null);
-            setTimeout(() => setUpdatingRow(null), 500); // Remove the animation class after the animation completes
+            setTimeout(() => setUpdatingRow(null), 500);
         } catch (err) {
             setError(`Error updating data: ${err.message}`);
         }
@@ -145,14 +147,11 @@ const MedicinesTable = ({ mode }) => {
             } finally {
                 setDeletingRow(null);
             }
-        }, 500); // Delay to allow animation to complete
+        }, 500);
     };
 
     const handleSearchKeyPress = (e) => {
         if (e.key === 'Enter' && searchQuery.toLowerCase() === 'logout') {
-            // Perform logout action
-            console.log('Logging out...');
-            // Add your logout logic here
             navigate('/login');
         }
     };
@@ -166,7 +165,7 @@ const MedicinesTable = ({ mode }) => {
                     <thead>
                     <tr>
                         {mode === 'add' ? (
-                            <th colSpan="7" className="text-right">
+                            <th colSpan={mode === 'add' ? 6 : 7} className="text-right">
                                 <button className="add-button" onClick={handleAddClick}>
                                     <FaPlus/> Add
                                 </button>
@@ -183,14 +182,17 @@ const MedicinesTable = ({ mode }) => {
                             </th>
                         ) : (
                             <th colSpan="8">
-                                <input
-                                    type="text"
-                                    placeholder="Search..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    onKeyPress={handleSearchKeyPress}
-                                    className="search-bar"
-                                />
+                                <div className="search-container">
+                                    <input
+                                        type="text"
+                                        placeholder="Search..."
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        onKeyPress={handleSearchKeyPress}
+                                        className="search-bar"
+                                    />
+                                    <FaSearchengin className="search-icon"/>
+                                </div>
                             </th>
                         )}
                     </tr>
@@ -201,7 +203,7 @@ const MedicinesTable = ({ mode }) => {
                         <th>Box Number</th>
                         <th>Tablets per Sheet</th>
                         <th>MRP</th>
-                        <th>Per Cost</th>
+                        {mode !== 'update' && <th>Per Cost</th>} {/* Exclude Per Cost in Update mode */}
                         {mode === 'update' && <th><GrUpdate/></th>}
                         {mode === 'remove' && <th><AiOutlineDelete/></th>}
                     </tr>
@@ -209,15 +211,18 @@ const MedicinesTable = ({ mode }) => {
                     <tbody>
                     {newRows.map((newRow, index) => (
                         <tr key={index}>
-                            {Object.keys(newRow).map((field) => (
-                                <td key={field}>
-                                    <input
-                                        type="text"
-                                        value={newRow[field]}
-                                        onChange={(e) => handleInputChange(e, index, field, true)}
-                                    />
-                                </td>
-                            ))}
+                            {Object.keys(newRow).map((field) => {
+                                if (mode === 'update' && field === 'perCost') return null; // Skip perCost in Update mode
+                                return (
+                                    <td key={field}>
+                                        <input
+                                            type="text"
+                                            value={newRow[field]}
+                                            onChange={(e) => handleInputChange(e, index, field, true)}
+                                        />
+                                    </td>
+                                );
+                            })}
                         </tr>
                     ))}
                     {filteredMedicines.length > 0 ? (
@@ -279,17 +284,19 @@ const MedicinesTable = ({ mode }) => {
                                         medicine.mrp
                                     )}
                                 </td>
-                                <td>
-                                    {editableRow === medicine.id ? (
-                                        <input
-                                            type="text"
-                                            value={editedData.perCost}
-                                            onChange={(e) => handleInputChange(e, null, 'perCost')}
-                                        />
-                                    ) : (
-                                        medicine.perCost
-                                    )}
-                                </td>
+                                {mode !== 'update' && ( // Conditionally render Per Cost column
+                                    <td>
+                                        {editableRow === medicine.id ? (
+                                            <input
+                                                type="text"
+                                                value={editedData.perCost}
+                                                onChange={(e) => handleInputChange(e, null, 'perCost')}
+                                            />
+                                        ) : (
+                                            medicine.perCost
+                                        )}
+                                    </td>
+                                )}
                                 {mode === 'update' && (
                                     <td>
                                         {editableRow === medicine.id ? (
@@ -310,7 +317,7 @@ const MedicinesTable = ({ mode }) => {
                     ) : (
                         mode !== 'add' && (
                             <tr>
-                                <td colSpan="8" className="no-data">No data available.</td>
+                                <td colSpan={mode === 'add' ? 6 : 8} className="no-data">No data available.</td>
                             </tr>
                         )
                     )}

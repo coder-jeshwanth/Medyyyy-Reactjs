@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 .vikas-home {
     display: flex;
     flex-direction: column;
@@ -39,6 +40,7 @@
     font-size: 22px;
     margin-top: 10px;
     color: #000; /* Ensure the text color is set to a visible color */
+    font-family: 'Roboto', sans-serif;
 }
 
 .icon-wrapper:hover .fa-edit {
