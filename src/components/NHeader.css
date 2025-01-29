@@ -1,0 +1,23 @@
+/* src/components/NHeader.css */
+.header {
+    background-color: #F9F8F2; /* Set the background color */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the logo */
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}

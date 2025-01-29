@@ -1,68 +1,71 @@
-/* Login.css */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #87CEEB; /* Light blue background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
 
 .login-card {
-    background-color: #F8F9FA; /* Light gray card background */
-    padding: 20px 30px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background: transparent;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
     text-align: center;
+    box-shadow: none;
 }
 
-.login-title {
-    font-size: 1.5rem;
+.logo {
+    width: 100%;
+    height: 100%;
     margin-bottom: 20px;
-    color: #333;
+    margin-top: 200px;
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 40px;
+    position: relative;
+    width: 450px;
+    margin-left: -50px;
+}
+
+.input-group:first-of-type {
+    margin-top: 20px;
 }
 
 .login-input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #CCC;
-    border-radius: 5px;
-    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px 15px;
+    font-size: 20px;
     outline: none;
-    box-sizing: border-box;
-    transition: border-color 0.2s;
+    background-color: transparent;
 }
 
-.login-input:focus {
-    border-color: #007BFF;
+.password-group .login-input {
+    padding-right: 20px; /* Add padding to make space for the eye icon */
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .login-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    color: #FFF;
-    background-color: #007BFF; /* Blue button */
+    width: 450px;
+    padding: 0px;
+    margin: 10px 0;
     border: none;
-    border-radius: 5px;
+    background-color: #afcbdd;
+    color: black;
+    font-size: 25px;
+    font-weight: lighter;
+    height: 50px;
+    border-radius: 10px;
+    font-family: 'Allura', cursive;
     cursor: pointer;
-    transition: background-color 0.2s;
+    margin-left: -50px;
 }
 
 .login-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: deepskyblue;
 }

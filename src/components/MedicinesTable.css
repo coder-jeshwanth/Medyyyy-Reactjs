@@ -1,18 +1,19 @@
+/* MedicinesTable.css */
 .medicines-table-container {
-    width: 1900px;
-    height: calc(100vh - 40px); /* Adjust for padding/margin if needed */
-    animation: fadeIn 0.5s ease-in-out;
-    margin-top:75px;/* Removed the high margin */
-    box-sizing: border-box; /* Ensure padding doesn't affect width/height */
+    width: 100%;
+    max-width: 800px;
+    min-height: 200px; /* Set a minimum height for the container */
+    margin: 70px auto;
     display: flex;
-    justify-content: center; /* Center table horizontally */
-    align-items: flex-start; /* Align table to the top */
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-shadow: 12px 20px 15px rgba(0, 0, 0, 0.1); /* Add shadow to the container */
+    animation: fadeIn 0.5s ease-in-out; /* Apply the fadeIn animation */
 }
 
 .medicines-table {
-    width: 100%; /* Stretch the table to fit the container */
-    max-width: 100%; /* Ensure it doesn't overflow */
-    height: auto; /* Allow the table to expand vertically as needed */
+    width: 100%;
     border-collapse: collapse;
     font-size: 1rem;
     text-align: left;
@@ -21,18 +22,141 @@
 .medicines-table th, .medicines-table td {
     padding: 12px 15px;
     border: 1px solid #ddd;
-    word-wrap: break-word; /* Prevent overflow of long text */
+    word-wrap: break-word;
 }
 
 .medicines-table th {
-    background-color: #f4f4f4;
+    background-color: deepskyblue;
+    font-family: kanit;
 }
 
 .medicines-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+.search-bar-cell {
+    text-align: center;
+    padding: 15px;
+    background-color: #f1f1f1;
+}
+
+.search-bar {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.save-icon, .edit-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.save-icon:hover, .edit-icon:hover {
+    color: #0056b3;
+}
+
+/* MedicinesTable.css */
+.add-button-cell {
+    text-align: center;
+}
+
+.add-button {
+    padding: 10px 20px;
+    background-color: #38B6FF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #2a8ccf;
+}
+/* MedicinesTable.css */
+.remove-button {
+    padding: 10px 20px;
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.remove-button:hover {
+    background-color: #FF4500;
+}
+
+.delete-icon{
+    color: black;
+}
+
+.delete-icon:hover{
+    color: red;
+    cursor: pointer;
+}
+
+/* Add this CSS for the vanish animation */
+@keyframes vanish {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.vanish {
+    animation: vanish 0.5s forwards;
+}
+
+/* Add this CSS for the update animation */
+@keyframes update {
+    from {
+        background-color: limegreen;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
+.update {
+    animation: update 0.5s forwards;
+}
+
+/* Add this CSS for the vanish animation */
+@keyframes vanish {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.vanish {
+    animation: vanish 0.5s forwards;
 }

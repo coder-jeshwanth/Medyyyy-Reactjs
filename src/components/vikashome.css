@@ -1,0 +1,85 @@
+.vikas-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background-color: #38B6FF;
+    padding-top: 20px;
+}
+
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 20px;
+    margin-top: 110px;
+}
+
+.icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 50px;
+    transition: transform 0.3s ease;
+    color: #000; /* Ensure the icon color is set to a visible color */
+}
+
+.icon-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 22px;
+    margin-top: 10px;
+    color: #000; /* Ensure the text color is set to a visible color */
+}
+
+.icon-wrapper:hover .fa-edit {
+    transform: translateX(-50px);
+    color: #F9F8F2;
+}
+
+.icon-wrapper:hover .fa-edit + .icon-text {
+    opacity: 1;
+    margin-top:25px;
+    margin-left: 5px;
+}
+
+.icon-wrapper:hover .fa-search {
+    transform: translateX(70px); /* Move the icon to the right */
+    margin-top: -5px;
+    color: #F9F8F2;
+}
+
+.icon-wrapper:hover .fa-search + .icon-text {
+    opacity: 1; /* Show the text */
+    margin-top: -5px;
+}
+
+.icon-wrapper:hover .io-add-circle {
+    transform: translateY(60px); /* Move the icon down */
+    color: green;
+}
+
+.icon-wrapper:hover .io-add-circle + .icon-text {
+    opacity: 1; /* Show the text */
+    margin-top: 10px; /* Position the text below the icon */
+}
+
+.icon-wrapper:hover .io-md-remove-circle {
+    transform: translateY(60px); /* Move the icon down */
+    color: red;
+}
+
+.icon-wrapper:hover .io-md-remove-circle + .icon-text {
+    opacity: 1; /* Show the text */
+    margin-top: 2px; /* Same margin-top as .fa-edit */
+    margin-left: 5px; /* Same margin-left as .fa-edit */
+}

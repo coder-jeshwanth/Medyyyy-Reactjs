@@ -1,0 +1,32 @@
+/* src/components/AddMedicines.css */
+.add-medicines-container {
+    padding: 20px;
+}
+
+.medicines-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.medicines-table th, .medicines-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.medicines-table th {
+    background-color: #f2f2f2;
+}
+
+.medicines-table input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
