@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64494062-1575-4fb6-b260-7adb8b1e6f4c" name="Changes" comment="version 2.0">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MedicinesTable.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicinesTable.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MedicinesTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicinesTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/vikashome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/vikashome.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -60,7 +56,6 @@
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.npm start.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -112,8 +107,6 @@
       <workItem from="1738038733758" duration="2477000" />
       <workItem from="1738047761770" duration="105000" />
       <workItem from="1738156869987" duration="5528000" />
-      <workItem from="1738162616916" duration="20144000" />
-      <workItem from="1738215271943" duration="9291000" />
     </task>
     <task id="LOCAL-00001" summary="version 1.0">
       <option name="closed" value="true" />
@@ -123,47 +116,6 @@
       <option name="project" value="LOCAL" />
       <updated>1737917179883</updated>
     </task>
-    <task id="LOCAL-00002" summary="version 1.0">
-      <option name="closed" value="true" />
-      <created>1738184061228</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1738184061228</updated>
-    </task>
-    <task id="LOCAL-00003" summary="version 2.0">
-      <option name="closed" value="true" />
-      <created>1738184072515</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1738184072515</updated>
-    </task>
-    <task id="LOCAL-00004" summary="version 2.0">
-      <option name="closed" value="true" />
-      <created>1738184091580</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1738184091580</updated>
-    </task>
-    <task id="LOCAL-00005" summary="version 2.0">
-      <option name="closed" value="true" />
-      <created>1738184155506</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1738184155506</updated>
-    </task>
-    <task id="LOCAL-00006" summary="version 2.0">
-      <option name="closed" value="true" />
-      <created>1738184163035</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1738184163035</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +123,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version 1.0" />
-    <MESSAGE value="version 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 2.0" />
   </component>
 </project>
